@@ -6,12 +6,14 @@
 
 classDiagram
     
+    direction LR
+    
     class App {
         - garagem: Set NaveEspecial
         + main(args: String[]) void
     }
     
-    class NaveEspecial {
+    class NaveEspacial {
             <<Abstract>>
         # velocidadeAtual: int
         
@@ -58,6 +60,20 @@ classDiagram
         <<Interface>>
         + ativarControleAutomatico() String *
     }
+    
+    App *-- NaveEspacial
+    
+    NaveEspacial <|-- NaveMineradora 
+    NaveEspacial <|-- NaveExploradora
+    NaveEspacial <|-- NaveCargueira
+    NaveEspacial <|-- NaveSentinela
+
+    Tripulada <|.. NaveMineradora
+    Tripulada <|.. NaveExploradora
+    Blindada <|.. NaveExploradora
+    Blindada <|.. NaveCargueira
+    Autonoma <|.. NaveCargueira
+    Autonoma <|.. NaveSentinela
         
     
 
