@@ -15,10 +15,10 @@ classDiagram
             <<Abstract>>
         # velocidadeAtual: int
         
-        + acelerar(intensidade: int) String
-        + frear(intensidade: int) String
-        + pousar() String
-        + decolar() String
+        + acelerar(intensidade: int) String *
+        + frear(intensidade: int) String *
+        + pousar() String *
+        + decolar() String *
     }
     
     class NaveMineradora {
@@ -29,8 +29,36 @@ classDiagram
     }
     
     class NaveExploradora {
-        - holofotes: 
+        - holofotes: bool
+        + ligarHolofotes() String
     }
+    
+    class NaveCargueira {
+        - capacidadeMaxima: int
+        - cargaAtual: int
+        + carregar(peso: int) String
+    }
+    
+    class NaveSentinela {
+        - radar: bool
+        + ligarRadar() String
+    }
+    
+    class Tripulada {
+        <<Interface>>
+        + controlarManual() String *
+    }
+    
+    class Blindada {
+        <<Interface>>
+        + ativarBlindagem() String *
+    }
+    
+    class Autonoma {
+        <<Interface>>
+        + ativarControleAutomatico() String *
+    }
+        
     
 
 
