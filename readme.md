@@ -53,6 +53,9 @@ classDiagram
     
     class Blindada {
         <<Interface>>
+        
+        + VELOCIDADE_MAXIMA: int
+        
         + ativarBlindagem() String *
     }
     
@@ -60,6 +63,10 @@ classDiagram
         <<Interface>>
         + ativarControleAutomatico() String *
     }
+    
+    
+    
+    
     
     App *-- NaveEspacial
     
