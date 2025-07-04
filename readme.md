@@ -15,12 +15,18 @@ classDiagram
     
     class NaveEspacial {
             <<Abstract>>
+        # id: int
         # velocidadeAtual: int
+        # velocidadeMaxima: int
+        # quantidadeAtualTripulantes: int
+        # quantidadeMaximaTripulantes: int
+        
         
         + acelerar(intensidade: int) String *
         + frear(intensidade: int) String *
         + pousar() String *
         + decolar() String *
+        + gerarIdentificador() int
     }
     
     class NaveMineradora {
@@ -39,6 +45,10 @@ classDiagram
         - capacidadeMaxima: int
         - cargaAtual: int
         + carregar(peso: int) String
+        
+        
+        
+        
     }
     
     class NaveSentinela {
@@ -49,19 +59,22 @@ classDiagram
     class Tripulada {
         <<Interface>>
         + controlarManual() String *
+        + validarVelocidadeMaxima() int *
+        + validarQuantidadeMaximaTripulantes() int *
     }
     
     class Blindada {
         <<Interface>>
         
-        + VELOCIDADE_MAXIMA: int
-        
         + ativarBlindagem() String *
+        + desativarBlindagem() String *
+        + validarVelocidadeMaxima() int *
     }
     
     class Autonoma {
         <<Interface>>
         + ativarControleAutomatico() String *
+        + validarQuantidadeMaximaTripulantes() int *
     }
     
     
