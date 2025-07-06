@@ -1,4 +1,6 @@
-## Lista 4
+## Lista 4: Frota Espacial Polimórfica
+
+## Alunos: Willian Ferreira dos Santos, Mônica Cancellier
 
 ## Diagrama de Classes
 
