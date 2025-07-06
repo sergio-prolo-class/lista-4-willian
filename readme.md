@@ -9,7 +9,7 @@ classDiagram
     direction LR
     
     class App {
-        - garagem: Set NaveEspecial
+        - garagem: Set ~NaveEspecial~
         + main(args: String[]) void
     }
     
