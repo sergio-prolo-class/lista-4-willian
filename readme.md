@@ -99,6 +99,16 @@ classDiagram
 
 ```
 
+## Como executar
+
+Para executar a aplicação, certifique-se de estar no diretório lista-1-willian. Então, digite o comando:
+
+```bash
+./gradlew run
+
+```
+## Intruções utilizadas para realizar a lista
+
 <img src="/img/1-informacoes-lista-4.png">
 <img src="/img/2-informacoes-lista-4.png">
 <img src="/img/3-informacoes-lista-4.png">
