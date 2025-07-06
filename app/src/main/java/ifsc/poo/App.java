@@ -3,6 +3,112 @@
  */
 package ifsc.poo;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import ifsc.poo.interfaces.Autonoma;
+import ifsc.poo.interfaces.Blindada;
+import ifsc.poo.interfaces.Tripulada;
+import ifsc.poo.naves.NaveCargueira;
+import ifsc.poo.naves.NaveExploradora;
+import ifsc.poo.naves.NaveMineradora;
+import ifsc.poo.naves.NaveSentinela;
+
 public class App {
+
+    private static Set<NaveEspacial> garagem = new LinkedHashSet<>();
+    
+    public static void main(String[] args) {
+
+        NaveCargueira c = new NaveCargueira(15, 20);
+        NaveExploradora e = new NaveExploradora(12, 2);
+        NaveMineradora m = new NaveMineradora(10, 6, 100);
+        NaveSentinela s = new NaveSentinela(20);
+
+        garagem.add(c);
+        garagem.add(e);
+        garagem.add(m);
+        garagem.add(s);
+
+        for (NaveEspacial nave : garagem) {
+
+            System.out.println("------------------------------------");
+
+            // Usando polimosrfismo na instrução abaixo
+
+            if (nave instanceof NaveCargueira) {
+
+                NaveCargueira naveCarg = (NaveCargueira) nave;
+
+                System.out.println(naveCarg.carregar(250));
+                System.out.println(naveCarg.decolar());
+                System.out.println(naveCarg.ativarBlindagem());
+                System.out.println(naveCarg.ativarControleAutomatico());
+                System.out.println(naveCarg.desativarBlindagem());
+                System.out.println(naveCarg.pousar());
+                System.out.println(naveCarg.desativarBlindagem());
+            }
+
+            // Usando polimorfismo na instrução abaixo
+
+            if (nave instanceof NaveExploradora) {
+                NaveExploradora naveExp = (NaveExploradora) nave;
+                System.out.println(naveExp.ligarHolofotes());
+                System.out.println(naveExp.decolar());
+                System.out.println(naveExp.ligarHolofotes());
+                System.out.println(naveExp.ativarBlindagem());
+                System.out.println(naveExp.controlarManual());
+            }
+
+            // Usando polimorfismo na instrução abaixo
+
+            if (nave instanceof NaveMineradora) {
+                NaveMineradora naveMine = (NaveMineradora) nave;
+                System.out.println(naveMine.minerar(20));
+                System.out.println(naveMine.controlarManual());
+            }
+
+            //Usando polimorfismo na instrução abaixo
+
+            if (nave instanceof NaveSentinela) {
+                NaveSentinela naveSent = (NaveSentinela) nave;
+                System.out.println(naveSent.decolar());
+                System.out.println(naveSent.acelerar(19));
+                System.out.println(naveSent.ligarRadar());
+                System.out.println(naveSent.frear(5));
+                System.out.println(naveSent.ligarRadar());
+                System.out.println(naveSent.ativarControleAutomatico());
+            }
+
+        }
+
+        for (NaveEspacial nave : garagem) {
+
+            System.out.println("------------------------------");
+
+            // Usando polimorfismo na instrução abaixo
+
+            if (nave instanceof Autonoma) {
+                Autonoma naveAutonoma = (Autonoma) nave;
+                System.out.println(naveAutonoma.ativarControleAutomatico());
+            }
+
+            // Usando polimorfismo na instrução abaixo
+            
+            if (nave instanceof Blindada) {
+                Blindada naveBlindada = (Blindada) nave;
+                System.out.println(naveBlindada.ativarBlindagem());
+            }
+
+            // Usando polimorfismo na instrução abaixo
+
+            if (nave instanceof Tripulada) {
+                Tripulada naveTripulada = (Tripulada) nave;
+                System.out.println(naveTripulada.controlarManual());
+            }
+
+        } 
+
+    }
 
 }
