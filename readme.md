@@ -83,10 +83,6 @@ classDiagram
         + ativarControleAutomatico() String *
     }
     
-    
-    
-    
-    
     App *-- NaveEspacial
     
     NaveEspacial <|-- NaveMineradora 
@@ -100,10 +96,9 @@ classDiagram
     Blindada <|.. NaveCargueira
     Autonoma <|.. NaveCargueira
     Autonoma <|.. NaveSentinela
-        
-    
-
-
 
 ```
 
+<img src="/img/1-informacoes-lista-4.png">
+<img src="/img/2-informacoes-lista-4.png">
+<img src="/img/3-informacoes-lista-4.png">
