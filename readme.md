@@ -16,65 +16,69 @@ classDiagram
     class NaveEspacial {
             <<Abstract>>
         # id: int
+        # nome: String
         # velocidadeAtual: int
         # velocidadeMaxima: int
         # quantidadeAtualTripulantes: int
         # quantidadeMaximaTripulantes: int
+        - identificador: int
         
-        
+        + NaveEspacial(nome: String, velocidadeMaxima: int, quantidadeMaximaTripulantes: int)
         + acelerar(intensidade: int) String *
         + frear(intensidade: int) String *
         + pousar() String *
         + decolar() String *
-        + gerarIdentificador() int
+        + gerarId() int
+        + obterIdentificadorFormatado() String
     }
     
     class NaveMineradora {
         - energiaLaserMaxima: int
         - energiaLaserAtual: int
+
+        + NaveMineradora(velocidadeMaxima: int, quantidadeMaximaTripulantes int, energiaLaserMaxima: int)
         
         + minerar(custo: int) String
     }
     
     class NaveExploradora {
-        - holofotes: bool
+        - holofotesAcesos: boolean
+
+        + NaveExploradora(velocidadeMaxima: int, quantidadeMaximaTripulantes: int)
         + ligarHolofotes() String
+        + desligarHolofotes() String
     }
     
     class NaveCargueira {
         - capacidadeMaxima: int
         - cargaAtual: int
+
+        + NaveCargueira(velocidadeMaxima: int, capacidadeMaxima: int)
         + carregar(peso: int) String
-        
-        
-        
-        
+        + desativarBlindagem() String
     }
     
     class NaveSentinela {
-        - radar: bool
+        - radarAtivado: boolean
+
+        + NaveSentinela(velocidadeMaxima: int)
         + ligarRadar() String
     }
     
     class Tripulada {
         <<Interface>>
         + controlarManual() String *
-        + validarVelocidadeMaxima() int *
-        + validarQuantidadeMaximaTripulantes() int *
     }
     
     class Blindada {
         <<Interface>>
         
         + ativarBlindagem() String *
-        + desativarBlindagem() String *
-        + validarVelocidadeMaxima() int *
     }
     
     class Autonoma {
         <<Interface>>
         + ativarControleAutomatico() String *
-        + validarQuantidadeMaximaTripulantes() int *
     }
     
     
